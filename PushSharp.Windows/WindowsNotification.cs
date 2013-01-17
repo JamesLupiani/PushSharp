@@ -105,6 +105,8 @@ namespace PushSharp.Windows
 			get { return WindowsNotificationType.Toast; }
 		}
 
+		public string Launch { get; set; }
+		public ToastNotificationDuration Duration { get; set; }
 		public ToastNotificationTemplate TextTemplate { get; set; }
 		public Dictionary<string, string> Images { get; set; }
 		public List<string> Texts { get; set; }
@@ -113,7 +115,10 @@ namespace PushSharp.Windows
 		{
 			var xml = new StringBuilder();
 
-			xml.Append("<toast>");
+			var launchParam = string.IsNullOrEmpty(Launch) ? string.Empty : string.Format("launch=\"{0}\"", XmlEncode(Launch));
+			var durationParam = Duration == ToastNotificationDuration.Short ? string.Empty : " duration=\"long\"";
+
+			xml.AppendFormat("<toast{0}{1}>", launchParam, durationParam);
 			xml.Append("<visual>");
 			xml.AppendFormat("<binding template=\"{0}\">", this.TextTemplate.ToString());
 
@@ -202,5 +207,11 @@ namespace PushSharp.Windows
 		ToastImageAndText03,
 		ToastImageAndText04
 	}
-	
+
+	public enum ToastNotificationDuration
+	{
+		Short,
+		Long
+	}
+
 }
