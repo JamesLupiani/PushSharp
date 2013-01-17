@@ -839,5 +839,17 @@ namespace PushSharp.Windows
 		}
 		#endregion
 
+
+		public static WindowsBadgeNotification WithNumericValue(this WindowsBadgeNotification notification, int value)
+		{
+			notification.Numeric = value;
+			return notification;
+		}
+
+		public static WindowsBadgeNotification WithGlyph(this WindowsBadgeNotification notification, BadgeNotificationGlyph glyph)
+		{
+			notification.Glyph = glyph;
+			return notification;
+		}
 	}
 }
