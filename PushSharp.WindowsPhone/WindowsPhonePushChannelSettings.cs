@@ -9,16 +9,21 @@ namespace PushSharp.WindowsPhone
 {
 	public class WindowsPhonePushChannelSettings : PushChannelSettings
 	{
+		public WindowsPhonePushChannelSettings() : this(null) { }
 
-		public WindowsPhonePushChannelSettings()
+		public WindowsPhonePushChannelSettings(string certificateFile, string certificateFilePwd)
+			: this(System.IO.File.ReadAllBytes(certificateFile), certificateFilePwd) { }
+
+		public WindowsPhonePushChannelSettings(byte[] certificateData, string certificateFilePwd)
+			: this(new X509Certificate2(certificateData, certificateFilePwd, 
+				X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable)) { }
+
+		
+		public WindowsPhonePushChannelSettings(X509Certificate2 certificate = null)
 		{
+			this.WebServiceCertificate = certificate;
 		}
 
-		public WindowsPhonePushChannelSettings(X509Certificate2 certificate)
-		{
-			this.Certificate = certificate;
-		}
-
-		public X509Certificate2 Certificate { get; private set; }
+		public X509Certificate2 WebServiceCertificate { get; private set; }
 	}
 }
