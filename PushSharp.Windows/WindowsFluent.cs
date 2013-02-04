@@ -465,7 +465,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: One square image, no text. Bottom: One header string in larger text on the first line, three strings of regular text on each of the next three lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeakImageAndText01(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string smallTextLine3, string smallTextLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText01(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string smallTextLine3, string smallTextLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -489,7 +489,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: One header string in larger text on the first line, over one string of regular text wrapped over a maximum of three lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeakImageAndText02(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText02(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -511,7 +511,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: Four strings of regular text on four lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeakImageAndText03(this WindowsTileNotification notification, string imageSource, string imageAlt, string textLine1, string textLine2, string textLine3, string textLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText03(this WindowsTileNotification notification, string imageSource, string imageAlt, string textLine1, string textLine2, string textLine3, string textLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -535,7 +535,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: One string of regular text wrapped over a maximum of four lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeakImageAndText04(this WindowsTileNotification notification, string imageSource, string imageAlt, string wrappedText, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText04(this WindowsTileNotification notification, string imageSource, string imageAlt, string wrappedText, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
