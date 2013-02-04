@@ -72,6 +72,7 @@ namespace PushSharp.Apple
         }
 
 		object sentLock = new object();
+		object connectLock = new object();
 		object streamWriteLock = new object();
 		int reconnectDelay = 3000;
 		float reconnectBackoffMultiplier = 1.5f;
@@ -127,7 +128,8 @@ namespace PushSharp.Apple
 
 				if (isOkToSend)
 				{
-					Connect();
+					lock(connectLock)
+						Connect();
 
 					try
 					{
@@ -264,6 +266,9 @@ namespace PushSharp.Apple
 		{
 			while (true)
 			{
+				lock(connectLock)
+					Connect();
+
 				bool wasRemoved = false;
 
 				lock (sentLock)
@@ -307,7 +312,7 @@ namespace PushSharp.Apple
 					Thread.Sleep(250);
 			}
 		}
-
+	
 		void Connect()
 		{
 			//Keep trying to connect
