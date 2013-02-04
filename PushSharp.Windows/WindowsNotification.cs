@@ -135,77 +135,9 @@ namespace PushSharp.Windows
 
 		public WindowsNotificationCachePolicyType? CachePolicy { get; set; }
 
-		public int? Numeric { get; set; }
-		public BadgeNotificationGlyph? Glyph { get; set; }
-
 		public override string PayloadToString()
 		{
-			if (!Numeric.HasValue && !Glyph.HasValue)
-				throw new InvalidOperationException("Either a numeric or glyph value is required.");
-
-			var xml = new StringBuilder();
-
-			var valueString = string.Empty;
-
-			if (Numeric.HasValue)
-				valueString = Numeric.Value.ToString();
-			else if (Glyph.HasValue)
-			{
-				switch (Glyph.Value)
-				{
-					case BadgeNotificationGlyph.None:
-						valueString = "none";
-						break;
-
-					case BadgeNotificationGlyph.Activity:
-						valueString = "activity";
-						break;
-
-					case BadgeNotificationGlyph.Alert:
-						valueString = "alert";
-						break;
-
-					case BadgeNotificationGlyph.Available:
-						valueString = "available";
-						break;
-
-					case BadgeNotificationGlyph.Away:
-						valueString = "away";
-						break;
-
-					case BadgeNotificationGlyph.Busy:
-						valueString = "busy";
-						break;
-
-					case BadgeNotificationGlyph.NewMessage:
-						valueString = "newMessage";
-						break;
-
-					case BadgeNotificationGlyph.Paused:
-						valueString = "paused";
-						break;
-
-					case BadgeNotificationGlyph.Playing:
-						valueString = "playing";
-						break;
-
-					case BadgeNotificationGlyph.Unavailable:
-						valueString = "unavailable";
-						break;
-
-					case BadgeNotificationGlyph.Error:
-						valueString = "error";
-						break;
-
-					case BadgeNotificationGlyph.Attention:
-						valueString = "attention";
-						break;
-				}
-			}
-
-			xml.AppendFormat("<badge value=\"{0}\">", valueString);
-
-			return xml.ToString();
+			throw new NotImplementedException();
 		}
 	}
 
@@ -256,19 +188,4 @@ namespace PushSharp.Windows
 		Long
 	}
 
-	public enum BadgeNotificationGlyph
-	{
-		None,
-		Activity,
-		Alert,
-		Available,
-		Away,
-		Busy,
-		NewMessage,
-		Paused,
-		Playing,
-		Unavailable,
-		Error,
-		Attention
-	}
 }
