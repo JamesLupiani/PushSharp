@@ -199,18 +199,6 @@ namespace PushSharp.Windows
 			return notification;
 		}
 
-		public static WindowsToastNotification WithDuration(this WindowsToastNotification notification, ToastNotificationDuration duration)
-		{
-			notification.Duration = duration;
-			return notification;
-		}
-
-		public static WindowsToastNotification WithLaunchParameter(this WindowsToastNotification notification, string launchParam)
-		{
-			notification.Launch = launchParam;
-			return notification;
-		}
-
 
 		#region Tile Fluent Methods
 		/// <summary>

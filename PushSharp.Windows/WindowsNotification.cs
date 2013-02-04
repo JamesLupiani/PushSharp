@@ -106,23 +106,45 @@ namespace PushSharp.Windows
 			get { return WindowsNotificationType.Toast; }
 		}
 
-		public string Launch { get; set; }
-		public ToastNotificationDuration Duration { get; set; }
 		public ToastNotificationTemplate TextTemplate { get; set; }
 		public Dictionary<string, string> Images { get; set; }
 		public List<string> Texts { get; set; }
 
 		public override string PayloadToString()
 		{
-			var rootElement = new XElement("toast");
+			var xml = new StringBuilder();
 
-			if (!string.IsNullOrEmpty(Launch))
-				rootElement.Add(new XAttribute("launch", XmlEncode(Launch)));
+			xml.Append("<toast>");
+			xml.Append("<visual>");
+			xml.AppendFormat("<binding template=\"{0}\">", this.TextTemplate.ToString());
 
-			if (Duration != ToastNotificationDuration.Short)
-				rootElement.Add(new XAttribute("duration", "long"));
+			int idOn = 1;
 
-			return this.GeneratePayload(rootElement, this.TextTemplate.ToString(), Images, Texts);
+			foreach (var imgSrc in Images.Keys)
+			{
+				var alt = Images[imgSrc];
+
+				if (!string.IsNullOrEmpty(alt))
+					xml.AppendFormat("<image id=\"{0}\" src=\"{1}\" alt=\"{2}\"/>", idOn, XmlEncode(imgSrc), XmlEncode(alt));
+				else
+					xml.AppendFormat("<image id=\"{0}\" src=\"{1}\"/>", idOn, XmlEncode(imgSrc));
+
+				idOn++;
+			}
+
+			idOn = 1;
+
+			foreach (var text in Texts)
+			{
+				xml.AppendFormat("<text id=\"{0}\">{1}</text>", idOn, XmlEncode(text));
+				idOn++;
+			}
+
+			xml.Append("</binding>");
+			xml.Append("</visual>");
+			xml.Append("</toast>");
+
+			return xml.ToString();
 		}
 	}
 
@@ -181,11 +203,5 @@ namespace PushSharp.Windows
 		ToastImageAndText03,
 		ToastImageAndText04
 	}
-
-	public enum ToastNotificationDuration
-	{
-		Short,
-		Long
-	}
-
+	
 }
