@@ -339,7 +339,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One short string of large block text over a single, short line of bold, regular text. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareBlock(this WindowsTileNotification notification, string largeText, string smallBoldItalicText, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquareBlock(this WindowsTileNotification notification, string largeText = null, string smallBoldItalicText = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 				{
@@ -351,8 +351,12 @@ namespace PushSharp.Windows
 					AddImageQuery = addImageQuery
 				};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = largeText });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallBoldItalicText });
+			if (largeText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeText });
+
+			if (smallBoldItalicText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallBoldItalicText });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -360,7 +364,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One header string in larger text on the first line; three strings of regular text on each of the next three lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareText01(this WindowsTileNotification notification, string largeText, string smallTextLine1, string smallTextLine2, string smallTextLine3, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquareText01(this WindowsTileNotification notification, string largeText = null, string smallTextLine1 = null, string smallTextLine2 = null, string smallTextLine3 = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -372,10 +376,18 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = largeText });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine3 });
+			if (largeText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeText });
+
+			if (smallTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine1 });
+
+			if (smallTextLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
+
+			if (smallTextLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine3 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -383,7 +395,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One header string in larger text on the first line, over one string of regular text wrapped over a maximum of three lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareText02(this WindowsTileNotification notification, string largeText, string smallTextWrapped, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquareText02(this WindowsTileNotification notification, string largeText = null, string smallTextWrapped = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -395,8 +407,12 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = largeText });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextWrapped });
+			if (largeText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeText });
+
+			if (smallTextWrapped != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextWrapped });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -404,7 +420,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Four strings of regular text on four lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareText03(this WindowsTileNotification notification, string textLine1, string textLine2, string textLine3, string textLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquareText03(this WindowsTileNotification notification, string textLine1 = null, string textLine2 = null, string textLine3 = null, string textLine4 = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -416,10 +432,18 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+			if (textLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine1 });
+
+			if (textLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
+
+			if (textLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
+
+			if (textLine4 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -427,7 +451,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One string of regular text wrapped over a maximum of four lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareText04(this WindowsTileNotification notification, string wrappedText, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileSquareText04(this WindowsTileNotification notification, string wrappedText = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -437,7 +461,9 @@ namespace PushSharp.Windows
 				Branding = branding
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = wrappedText });
+			if (wrappedText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = wrappedText });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -445,7 +471,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One square image that fills the entire tile, no text. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquareImage(this WindowsTileNotification notification, string imageSource, string imageAlt = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquareImage(this WindowsTileNotification notification, string imageSource = null, string imageAlt = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -457,7 +483,9 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Images.Add(new TileImage() {AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource});
+			if (imageSource != null)
+				binding.Images.Add(new TileImage() {AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource});
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -465,7 +493,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: One square image, no text. Bottom: One header string in larger text on the first line, three strings of regular text on each of the next three lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeekImageAndText01(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string smallTextLine3, string smallTextLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText01(this WindowsTileNotification notification, string imageSource = null, string imageAlt = null, string largeTextLine1 = null, string smallTextLine2 = null, string smallTextLine3 = null, string smallTextLine4 = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -477,11 +505,21 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
-			binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine4 });
+			if (imageSource != null)
+				binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
+
+			if (largeTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
+
+			if (smallTextLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
+
+			if (smallTextLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine3 });
+
+			if (smallTextLine4 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine4 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -489,7 +527,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: One header string in larger text on the first line, over one string of regular text wrapped over a maximum of three lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeekImageAndText02(this WindowsTileNotification notification, string imageSource, string imageAlt, string largeTextLine1, string smallTextLine2, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText02(this WindowsTileNotification notification, string imageSource = null, string imageAlt = null, string largeTextLine1 = null, string smallTextLine2 = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -501,9 +539,15 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
-			binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
+			if (imageSource != null)
+				binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
+
+			if (largeTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
+
+			if (smallTextLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = smallTextLine2 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -511,7 +555,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: Four strings of regular text on four lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeekImageAndText03(this WindowsTileNotification notification, string imageSource, string imageAlt, string textLine1, string textLine2, string textLine3, string textLine4, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText03(this WindowsTileNotification notification, string imageSource = null, string imageAlt = null, string textLine1 = null, string textLine2 = null, string textLine3 = null, string textLine4 = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -523,11 +567,21 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+			if (imageSource != null)
+				binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
+
+			if (textLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine1 });
+
+			if (textLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
+
+			if (textLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
+
+			if (textLine4 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -535,7 +589,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Top: Square image, no text. Bottom: One string of regular text wrapped over a maximum of four lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileSquarePeekImageAndText04(this WindowsTileNotification notification, string imageSource, string imageAlt, string wrappedText, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
+		public static WindowsTileNotification WithTileSquarePeekImageAndText04(this WindowsTileNotification notification, string imageSource = null, string imageAlt = null, string wrappedText = null, string language = null, string fallback = null, string baseUri = null, BrandingType? branding = null, bool? addImageQuery = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -547,8 +601,12 @@ namespace PushSharp.Windows
 				AddImageQuery = addImageQuery
 			};
 
-			binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
-			binding.Texts.Add(new TileText() { Language = language, Text = wrappedText });
+			if (imageSource != null)
+				binding.Images.Add(new TileImage() { AddImageQuery = addImageQuery, Alt = imageAlt, Source = imageSource });
+
+			if (wrappedText != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = wrappedText });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -556,7 +614,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One header string in larger text on the first line, four strings of regular text on the next four lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText01(this WindowsTileNotification notification, string largeTextLine1, string textLine2, string textLine3, string textLine4, string textLine5, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText01(this WindowsTileNotification notification, string largeTextLine1 = null, string textLine2 = null, string textLine3 = null, string textLine4 = null, string textLine5 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -566,11 +624,21 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine5 });
+			if (largeTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
+
+			if (textLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
+
+			if (textLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
+
+			if (textLine4 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+
+			if (textLine5 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine5 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -578,7 +646,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One header string in larger text over eight short strings arranged in two columns of four lines each. Columns are of equal width. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText02(this WindowsTileNotification notification, string largeTextLine1, string textLine2Col1, string textLine2Col2, string textLine3Col1, string textLine3Col2, string textLine4Col1, string textLine4Col2, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText02(this WindowsTileNotification notification, string largeTextLine1 = null, string textLine2Col1 = null, string textLine2Col2 = null, string textLine3Col1 = null, string textLine3Col2 = null, string textLine4Col1 = null, string textLine4Col2 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -588,13 +656,27 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col2 });
+			if (largeTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = largeTextLine1 });
+
+			if (textLine2Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col1 });
+
+			if (textLine2Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col2 });
+
+			if (textLine3Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col1 });
+
+			if (textLine3Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col2 });
+
+			if (textLine4Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col1 });
+
+			if (textLine4Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col2 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -602,7 +684,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One string of large text wrapped over a maximum of three lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText03(this WindowsTileNotification notification, string wrappedLargeTextLine1, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText03(this WindowsTileNotification notification, string wrappedLargeTextLine1 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -612,7 +694,9 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = wrappedLargeTextLine1 });
+			if (wrappedLargeTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = wrappedLargeTextLine1 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -620,7 +704,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// One string of regular text wrapped over a maximum of five lines. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText04(this WindowsTileNotification notification, string wrappedTextLine1, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText04(this WindowsTileNotification notification, string wrappedTextLine1 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -630,7 +714,9 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = wrappedTextLine1 });
+			if (wrappedTextLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = wrappedTextLine1 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -638,7 +724,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Five strings of regular text on five lines. Text does not wrap. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText05(this WindowsTileNotification notification, string textLine1, string textLine2, string textLine3, string textLine4, string textLine5, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText05(this WindowsTileNotification notification, string textLine1 = null, string textLine2 = null, string textLine3 = null, string textLine4 = null, string textLine5 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -648,11 +734,21 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine5 });
+			if (textLine1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine1 });
+
+			if (textLine2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2 });
+
+			if (textLine3 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3 });
+
+			if (textLine4 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4 });
+
+			if (textLine5 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine5 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
@@ -660,7 +756,7 @@ namespace PushSharp.Windows
 		/// <summary>
 		/// Ten short strings of regular text, arranged in two columns of five lines each. Columns are of equal width. For more information and example screenshots of the various Tile Layouts see http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
 		/// </summary>
-		public static WindowsTileNotification WithTileWideText06(this WindowsTileNotification notification, string textLine1Col1, string textLine1Col2, string textLine2Col1, string textLine2Col2, string textLine3Col1, string textLine3Col2, string textLine4Col1, string textLine4Col2, string textLine5Col1, string textLine5Col2, string language = null, string fallback = null, BrandingType? branding = null)
+		public static WindowsTileNotification WithTileWideText06(this WindowsTileNotification notification, string textLine1Col1 = null, string textLine1Col2 = null, string textLine2Col1 = null, string textLine2Col2 = null, string textLine3Col1 = null, string textLine3Col2 = null, string textLine4Col1 = null, string textLine4Col2 = null, string textLine5Col1 = null, string textLine5Col2 = null, string language = null, string fallback = null, BrandingType? branding = null)
 		{
 			var binding = new TileBinding()
 			{
@@ -670,16 +766,36 @@ namespace PushSharp.Windows
 				Branding = branding,
 			};
 
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine1Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine1Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col2 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine5Col1 });
-			binding.Texts.Add(new TileText() { Language = language, Text = textLine5Col2 });
+			if (textLine1Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine1Col1 });
+
+			if (textLine1Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine1Col2 });
+
+			if (textLine2Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col1 });
+
+			if (textLine2Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine2Col2 });
+
+			if (textLine3Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col1 });
+
+			if (textLine3Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine3Col2 });
+
+			if (textLine4Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col1 });
+
+			if (textLine4Col2 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine4Col2 });
+
+			if (textLine5Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine5Col1 });
+
+			if (textLine5Col1 != null)
+				binding.Texts.Add(new TileText() { Language = language, Text = textLine5Col2 });
+
 			notification.Visual.Bindings.Add(binding);
 			return notification;
 		}
